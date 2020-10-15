@@ -27,9 +27,9 @@ public class Address {
     @JoinColumn(name = "sport_club_id")
     private SportClub sportClub;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "player_id")
-    @JsonIgnore
+//    @JsonIgnore
     private Player player;
 
     @ManyToOne

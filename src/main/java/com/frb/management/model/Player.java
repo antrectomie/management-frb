@@ -33,7 +33,7 @@ public class Player {
     private List<Document> documents = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// eager--pentru ca in dto vrem flat address
-    @JsonIgnore
+    //@JsonIgnore
     private List<Address> addresses = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)

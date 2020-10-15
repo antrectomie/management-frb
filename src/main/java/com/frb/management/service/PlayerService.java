@@ -36,17 +36,26 @@ public class PlayerService {
 
     public Player save(Player player){
         System.out.println(player.getAddresses());
-//        Address address1 = Address.builder()
-//                .city("tm")
-//                .county("aswe")
-//                .number("sdf")
-//                .postOffice("sad")
-//                .street("sdaf")
-//                .build();
+        Address address1 = Address.builder()
+                .city("tm")
+                .county("aswe")
+                .number("sdf")
+                .postOffice("sad")
+                .street("sdaf")
+                .build();
+        Address address2 = Address.builder()
+                .city("ufy")
+                .county("tyu")
+                .number("nfg")
+                .postOffice("agd")
+                .street("opil")
+                .build();
 //        player.addAddress(address);
 //        List<Address> list = player.getAddresses();
 //        addressService.saveAll(list);
-      // player.getAddresses().add(address1);
+//       player.getAddresses().add(address1);
+        player.getAddresses().add(address1);
+        player.getAddresses().add(address2);
         return playerRepository.save(player);
     }
     public Player getSimplePlayer(){return null;}
