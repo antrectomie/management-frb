@@ -1,0 +1,24 @@
+### Send POST request with json body
+POST http://localhost:8080/player
+Content-Type: application/json
+
+{
+  "id": null,
+  "firstName": "etew",
+  "lastName": "ionitewtca",
+  "cnp": "678912333",
+  "dateOfBirth": "",
+  "birthNationality": "roman",
+  "currentNationality": "roman",
+  "pathOfPicture": "path/aaa.jpg",
+  "addresses": [
+    {
+      "id": null,
+      "street": "noua incercare",
+      "number": "7888",
+      "city": "alba",
+      "county": "ilfalbaov",
+      "postOffice": "300555"
+    }
+  ]
+}
