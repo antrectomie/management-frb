@@ -7,9 +7,10 @@ import com.frb.management.model.Address;
 import com.frb.management.model.Player;
 import com.frb.management.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -34,8 +35,10 @@ public class PlayerService {
         return PlayerMapper.toDto(player, null, player.getContact());
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public Player save(Player player){
-        System.out.println(player.getAddresses());
+        System.out.println(player);
+//        System.out.println(player.getAddresses());
 //        Address address1 = Address.builder()
 //                .city("tm")
 //                .county("aswe")

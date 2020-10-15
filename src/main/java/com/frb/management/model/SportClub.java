@@ -37,7 +37,6 @@ public class SportClub {
     private List<Document> documents = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
     private List<Address> addresses = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -46,12 +45,10 @@ public class SportClub {
 
 
     @OneToMany(mappedBy = "sportClub")
-    @JsonIgnore
     private List<Employee> employees = new ArrayList<>();
 
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sportClub")
     private List<Player> players = new ArrayList<>();
 }
 

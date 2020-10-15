@@ -32,8 +32,9 @@ public class Player {
     @JsonIgnore
     private List<Document> documents = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// eager--pentru ca in dto vrem flat address
-    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "player", fetch = FetchType.EAGER)// eager--pentru ca in dto vrem flat address
+//    @JoinColumn(name = "player_id")
+//    @JsonIgnore
     private List<Address> addresses = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -46,10 +47,10 @@ public class Player {
     private SportClub sportClub;
 
 
-    public void addAddress(Address address){
-        this.addresses.add(address);
-        address.setPlayer(this);
-    }
+//    public void addAddress(Address address){
+//        this.addresses.add(address);
+//        address.setPlayer(this);
+//    }
 
     public Long getId() {
         return id;
@@ -99,6 +100,14 @@ public class Player {
         this.birthNationality = birthNationality;
     }
 
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
+
     public String getCurrentNationality() {
         return currentNationality;
     }
@@ -121,14 +130,6 @@ public class Player {
 
     public void setDocuments(List<Document> documents) {
         this.documents = documents;
-    }
-
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddress(List<Address> addresses) {
-        this.addresses = addresses;
     }
 
 
@@ -160,7 +161,7 @@ public class Player {
                 ", currentNationality='" + currentNationality + '\'' +
                 ", pathOfPicture='" + pathOfPicture + '\'' +
                 ", documents=" + documents +
-                ", addresses=" + addresses +
+
                 ", contact=" + contact +
                 ", sportClub=" + sportClub +
                 '}';

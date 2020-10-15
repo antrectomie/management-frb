@@ -13,15 +13,15 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Builder
-@Entity
+//@Entity
 public class Transfer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private LocalDate dateOfTransfer;
-    @ManyToOne
-    private Player player;
-    @ManyToOne
-    private SportClub sportClub;
+//    @ManyToOne
+//    private Player player;
+//    @ManyToOne
+//    private SportClub sportClub;
 
 }
