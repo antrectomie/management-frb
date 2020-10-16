@@ -25,24 +25,24 @@ public class Employee {
 
 
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "employee")
-    @JsonIgnore
-    private List<Document> documents = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "employee")
-    @JsonIgnore
-    private List<Address> addresses = new ArrayList<>();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id", referencedColumnName = "id")
-    private Contact contact;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
-
-    @ManyToOne
-    private EmployeeType employeeType;
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "employee")
+//    @JsonIgnore
+//    private List<Document> documents = new ArrayList<>();
+//
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "employee")
+//    @JsonIgnore
+//    private List<Address> addresses = new ArrayList<>();
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "contact_id", referencedColumnName = "id")
+//    private Contact contact;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "sport_club_id")
+//    private SportClub sportClub;
+//
+//    @ManyToOne
+//    private EmployeeType employeeType;
 
 
 

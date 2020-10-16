@@ -19,18 +19,18 @@ public class Contact {
     private String faxNumber;
     private String email;
 
-    @OneToOne
-    @MapsId             //PK-ul din SportClub va fi PK si FK in student
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private Player player;
-
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "id")
-    private Employee employee;
+//    @OneToOne
+//    @MapsId             //PK-ul din SportClub va fi PK si FK in student
+//    @JoinColumn(name = "sport_club_id")
+//    private SportClub sportClub;
+//
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "id")
+//    private Player player;
+//
+//    @OneToOne
+//    @MapsId
+//    @JoinColumn(name = "id")
+//    private Employee employee;
 }

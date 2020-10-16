@@ -18,4 +18,8 @@ public class AddressService {
     public void saveAll(List<Address> addressList){
         addressRepository.saveAll(addressList);
     }
+
+    public void save(Address address) {
+        addressRepository.save(address);
+    }
 }

@@ -25,18 +25,18 @@ public class Document {
     //    @Temporal(TemporalType.TIMESTAMP)
     //    @DateTimeFormat(pattern = "ddmmYYYY HH:mm:ss")
     private LocalDate notificationDate;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "player_id")
-    private Player player;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "sport_club_id")
+//    private SportClub sportClub;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "player_id")
+//    private Player player;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "employee_id")
+//    private Employee employee;
 
 
 }

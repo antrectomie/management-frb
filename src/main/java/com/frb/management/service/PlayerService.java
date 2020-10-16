@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -21,8 +22,9 @@ public class PlayerService {
     private PlayerRepository playerRepository;
     private AddressService addressService;
 
-    public PlayerService(PlayerRepository playerRepository) {
+    public PlayerService(PlayerRepository playerRepository, AddressService addressService) {
         this.playerRepository = playerRepository;
+        this.addressService = addressService;
     }
 
     public PlayerDto getById(Long id){
@@ -31,32 +33,34 @@ public class PlayerService {
                 new EntityNotFoundException("Entity doesn't exist"));
         System.out.println("player din db");
         System.out.println(player);
-        return PlayerMapper.toDto(player, null, player.getContact());
+        return PlayerMapper.toDto(player, null, null);
     }
 
     public Player save(Player player){
         System.out.println(player.getAddresses());
-        Address address1 = Address.builder()
-                .city("tm")
-                .county("aswe")
-                .number("sdf")
-                .postOffice("sad")
-                .street("sdaf")
-                .build();
-        Address address2 = Address.builder()
-                .city("ufy")
-                .county("tyu")
-                .number("nfg")
-                .postOffice("agd")
-                .street("opil")
-                .build();
-//        player.addAddress(address);
-//        List<Address> list = player.getAddresses();
-//        addressService.saveAll(list);
-//       player.getAddresses().add(address1);
-        player.getAddresses().add(address1);
-        player.getAddresses().add(address2);
-        return playerRepository.save(player);
+//        Player savedPlayer = playerRepository.save(player);
+//
+//        player.getAddresses()
+//                .stream()
+//                .map(address ->
+//                {
+//                    return Address.builder()
+//                            .street(address.getStreet())
+//                            .postOffice(address.getPostOffice())
+//                            .number(address.getNumber())
+//                            .county(address.getCounty())
+//                            .city(address.getCity())
+//                            .build();
+//                }).peek(address -> address.setPlayer(player));
+//                .collect(Collectors.toList());
+
+        List<Address> list = player.getAddresses();
+        list.forEach(address -> address.setPlayer(player));
+
+        Player savedPlayer = playerRepository.save(player);
+        addressService.saveAll(list);
+
+        return savedPlayer;
     }
     public Player getSimplePlayer(){return null;}
 }

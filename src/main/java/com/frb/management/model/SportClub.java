@@ -32,27 +32,27 @@ public class SportClub {
     private String previousNames;
     private String nominalComponentOfOrgans;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
-    private List<Document> documents = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
-    private List<Address> addresses = new ArrayList<>();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id", referencedColumnName = "id")
-    private Contact contact;
-
-
-    @OneToMany(mappedBy = "sportClub")
-    @JsonIgnore
-    private List<Employee> employees = new ArrayList<>();
-
-
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
-    private List<Player> players = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
+//    @JsonIgnore
+//    private List<Document> documents = new ArrayList<>();
+//
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
+//    @JsonIgnore
+//    private List<Address> addresses = new ArrayList<>();
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "contact_id", referencedColumnName = "id")
+//    private Contact contact;
+//
+//
+//    @OneToMany(mappedBy = "sportClub")
+//    @JsonIgnore
+//    private List<Employee> employees = new ArrayList<>();
+//
+//
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
+//    @JsonIgnore
+//    private List<Player> players = new ArrayList<>();
 }
 
 

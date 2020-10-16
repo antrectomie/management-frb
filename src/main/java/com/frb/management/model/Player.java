@@ -28,22 +28,22 @@ public class Player {
     private String currentNationality;
     private String pathOfPicture;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "player")
-    @JsonIgnore
-    private List<Document> documents = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "player")
+//    @JsonIgnore
+//    private List<Document> documents = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)// eager--pentru ca in dto vrem flat address
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "player")// eager--pentru ca in dto vrem flat address
     //@JsonIgnore
     private List<Address> addresses = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id")
-    private Contact contact;
-
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "contact_id")
+//    private Contact contact;
+//
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "sport_club_id")
+//    private SportClub sportClub;
 
 
     public void addAddress(Address address){
@@ -115,13 +115,13 @@ public class Player {
         this.pathOfPicture = pathOfPicture;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
-    }
+//    public List<Document> getDocuments() {
+//        return documents;
+//    }
+//
+//    public void setDocuments(List<Document> documents) {
+//        this.documents = documents;
+//    }
 
     public List<Address> getAddresses() {
         return addresses;
@@ -131,22 +131,26 @@ public class Player {
         this.addresses = addresses;
     }
 
+//
+//    public Contact getContact() {
+//        return contact;
+//    }
+//
+//    public void setContact(Contact contact) {
+//        this.contact = contact;
+//    }
+//
+//    public SportClub getSportClub() {
 
-    public Contact getContact() {
-        return contact;
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public SportClub getSportClub() {
-        return sportClub;
-    }
-
-    public void setSportClub(SportClub sportClub) {
-        this.sportClub = sportClub;
-    }
+//        return sportClub;
+//    }
+//
+//    public void setSportClub(SportClub sportClub) {
+//        this.sportClub = sportClub;
+//    }
 
     @Override
     public String toString() {
@@ -159,10 +163,8 @@ public class Player {
                 ", birthNationality='" + birthNationality + '\'' +
                 ", currentNationality='" + currentNationality + '\'' +
                 ", pathOfPicture='" + pathOfPicture + '\'' +
-                ", documents=" + documents +
                 ", addresses=" + addresses +
-                ", contact=" + contact +
-                ", sportClub=" + sportClub +
+
                 '}';
     }
 }
