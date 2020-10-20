@@ -4,7 +4,9 @@ import com.frb.management.dto.PlayerDto;
 import com.frb.management.exceptions.WrongIdException;
 import com.frb.management.mapper.PlayerMapper;
 import com.frb.management.model.Address;
+import com.frb.management.model.Contact;
 import com.frb.management.model.Player;
+import com.frb.management.repository.ContactRepository;
 import com.frb.management.repository.PlayerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,9 +23,12 @@ public class PlayerService {
 
     private PlayerRepository playerRepository;
     private AddressService addressService;
+    private ContactRepository contactRepository;
 
-    public PlayerService(PlayerRepository playerRepository) {
+    public PlayerService(PlayerRepository playerRepository, AddressService addressService, ContactRepository contactRepository) {
         this.playerRepository = playerRepository;
+        this.addressService = addressService;
+        this.contactRepository = contactRepository;
     }
 
     public PlayerDto getById(Long id){
@@ -32,25 +37,21 @@ public class PlayerService {
                 new EntityNotFoundException("Entity doesn't exist"));
         System.out.println("player din db");
         System.out.println(player);
-        return PlayerMapper.toDto(player, null, player.getContact());
+        return PlayerMapper.toDto(player, null, null);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
     public Player save(Player player){
-        System.out.println(player);
-//        System.out.println(player.getAddresses());
-//        Address address1 = Address.builder()
-//                .city("tm")
-//                .county("aswe")
-//                .number("sdf")
-//                .postOffice("sad")
-//                .street("sdaf")
-//                .build();
-//        player.addAddress(address);
-//        List<Address> list = player.getAddresses();
-//        addressService.saveAll(list);
-      // player.getAddresses().add(address1);
+        System.out.println(player.getContact());
+
+        Contact c = player.getContact();
+        List<Address> addresses = c.getAddresses();
+        addressService.saveAll(addresses);
+        contactRepository.save(c);
         return playerRepository.save(player);
     }
-    public Player getSimplePlayer(){return null;}
+
+    public List<Player> getPlayers() {
+        return playerRepository.findAll();
+    }
 }

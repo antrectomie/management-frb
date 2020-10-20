@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 public class SportClub {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String nrCis;
@@ -32,24 +32,21 @@ public class SportClub {
     private String previousNames;
     private String nominalComponentOfOrgans;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    @JsonIgnore
-    private List<Document> documents = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
-    private List<Address> addresses = new ArrayList<>();
+//    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
+//    @JsonIgnore
+//    private List<Document> documents = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contact_id", referencedColumnName = "id")
     private Contact contact;
 
-
-    @OneToMany(mappedBy = "sportClub")
-    private List<Employee> employees = new ArrayList<>();
-
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sportClub")
-    private List<Player> players = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "sportClub")
+//    private List<Employee> employees = new ArrayList<>();
+//
+//
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sportClub")
+//    private List<Player> players = new ArrayList<>();
 }
 
 

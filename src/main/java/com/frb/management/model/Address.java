@@ -1,38 +1,23 @@
 package com.frb.management.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long   id;
     private String street;
     private String number;
     private String city;
     private String county;
     private String postOffice;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
-
-    @ManyToOne()
-    @JoinColumn(name = "player_id")
-    @JsonIgnore
-    private Player player;
-
     @ManyToOne
-    @JoinColumn(name = "employee_id")
-    private Employee employee;
+    private Contact contact;
+
 
     public Long getId() {
         return id;
@@ -78,24 +63,17 @@ public class Address {
         return postOffice;
     }
 
-    public void setPostOffice(String postOffice) {
-        this.postOffice = postOffice;
-    }
-
-    public SportClub getSportClub() {
-        return sportClub;
-    }
-
-    public void setSportClub(SportClub sportClub) {
-        this.sportClub = sportClub;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", number='" + number + '\'' +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", postOffice='" + postOffice + '\'' +
+                ", contact=" + contact.getEmail() +
+                '}';
     }
 
     @Override

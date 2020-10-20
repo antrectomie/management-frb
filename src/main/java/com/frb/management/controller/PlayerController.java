@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/player")
+@RequestMapping("/players")
 public class PlayerController {
 
 
@@ -28,6 +30,12 @@ public class PlayerController {
     public ResponseEntity<PlayerDto> getById(@PathVariable Long id){
         PlayerDto playerDto = playerService.getById(id);
         return new ResponseEntity<>(playerDto, HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<?> getPlayers(){
+        List<Player> players = playerService.getPlayers();
+        return new ResponseEntity<List<Player>>(players, HttpStatus.OK);
     }
 
 

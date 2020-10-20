@@ -3,14 +3,10 @@ package com.frb.management.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GeneratorType;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +14,7 @@ import java.util.List;
 @Entity
 public class Player {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
@@ -28,29 +24,9 @@ public class Player {
     private String currentNationality;
     private String pathOfPicture;
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "player")
-    @JsonIgnore
-    private List<Document> documents = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "player", fetch = FetchType.EAGER)// eager--pentru ca in dto vrem flat address
-//    @JoinColumn(name = "player_id")
-//    @JsonIgnore
-    private List<Address> addresses = new ArrayList<>();
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id")
+    @OneToOne()
     private Contact contact;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sport_club_id")
-    private SportClub sportClub;
-
-
-//    public void addAddress(Address address){
-//        this.addresses.add(address);
-//        address.setPlayer(this);
-//    }
 
     public Long getId() {
         return id;
@@ -100,14 +76,6 @@ public class Player {
         this.birthNationality = birthNationality;
     }
 
-    public List<Address> getAddresses() {
-        return addresses;
-    }
-
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
-    }
-
     public String getCurrentNationality() {
         return currentNationality;
     }
@@ -124,14 +92,6 @@ public class Player {
         this.pathOfPicture = pathOfPicture;
     }
 
-    public List<Document> getDocuments() {
-        return documents;
-    }
-
-    public void setDocuments(List<Document> documents) {
-        this.documents = documents;
-    }
-
 
     public Contact getContact() {
         return contact;
@@ -141,12 +101,17 @@ public class Player {
         this.contact = contact;
     }
 
-    public SportClub getSportClub() {
-        return sportClub;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return id.equals(player.id);
     }
 
-    public void setSportClub(SportClub sportClub) {
-        this.sportClub = sportClub;
+    @Override
+    public int hashCode() {
+        return 31;
     }
 
     @Override
@@ -160,11 +125,10 @@ public class Player {
                 ", birthNationality='" + birthNationality + '\'' +
                 ", currentNationality='" + currentNationality + '\'' +
                 ", pathOfPicture='" + pathOfPicture + '\'' +
-                ", documents=" + documents +
-
                 ", contact=" + contact +
-                ", sportClub=" + sportClub +
                 '}';
     }
 }
+
+
 //entitate dto sa aibe flat contact, adress;
