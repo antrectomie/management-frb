@@ -1,6 +1,7 @@
 package com.frb.management.service;
 
 import com.frb.management.dto.SportClubDto;
+import com.frb.management.errorconfig.ExceptionType;
 import com.frb.management.exceptions.WrongIdException;
 import com.frb.management.exceptions.WrongParameterException;
 import com.frb.management.mapper.SportClubMapper;
@@ -23,7 +24,7 @@ public class SportClubService {
 
     public SportClubDto getById(Long id){
         if(id == null){
-            throw new WrongIdException("Wrong id");
+            throw new WrongIdException("Wrong id", ExceptionType.SPORT_CLUB_TYPE);
         }
         SportClub sportClub =  sportClubRepository.findById(id).orElseThrow(() ->
             new EntityNotFoundException("Entity not found")

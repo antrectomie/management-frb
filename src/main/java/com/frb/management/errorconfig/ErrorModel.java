@@ -13,6 +13,8 @@ public class ErrorModel {
 
     private String details;
 
+    private ExceptionType exceptionType;
+
     public ErrorModel(HttpStatus httpStatus, String message, String details) {
         this.httpStatus = httpStatus;
         this.timestamp = LocalDateTime.now();

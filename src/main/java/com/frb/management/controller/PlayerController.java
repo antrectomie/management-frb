@@ -1,5 +1,6 @@
 package com.frb.management.controller;
 
+import com.frb.management.dto.FlatPlayer;
 import com.frb.management.dto.PlayerDto;
 import com.frb.management.model.Player;
 import com.frb.management.service.PlayerService;
@@ -33,9 +34,15 @@ public class PlayerController {
     }
 
     @GetMapping()
-    public ResponseEntity<?> getPlayers(){
+    public ResponseEntity<?> getEagerPlayers(){
         List<Player> players = playerService.getPlayers();
         return new ResponseEntity<List<Player>>(players, HttpStatus.OK);
+    }
+
+    @GetMapping("/lazy")
+    public ResponseEntity<?> getFlatPlayers(){
+        List<FlatPlayer> flatPlayers = playerService.getPlayersFlat();
+        return new ResponseEntity<List<FlatPlayer>>(flatPlayers, HttpStatus.OK);
     }
 
 

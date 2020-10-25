@@ -31,8 +31,7 @@ public class Employee {
 //
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id", referencedColumnName = "id")
+    @OneToOne()
     private Contact contact;
 
 //    @ManyToOne(fetch = FetchType.LAZY)

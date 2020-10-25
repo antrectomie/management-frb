@@ -36,8 +36,7 @@ public class SportClub {
 //    @JsonIgnore
 //    private List<Document> documents = new ArrayList<>();
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contact_id", referencedColumnName = "id")
+    @OneToOne()
     private Contact contact;
 
 //
