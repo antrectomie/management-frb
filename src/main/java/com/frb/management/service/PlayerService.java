@@ -44,8 +44,9 @@ public class PlayerService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public Player save(Player player){
-//        System.out.println(player.getContact());
-
+        if(player == null){
+            throw new  NullPointerException("argument player is null");
+        }
         Contact c = player.getContact();
         List<Address> addresses = c.getAddresses();
         contactRepository.save(c);

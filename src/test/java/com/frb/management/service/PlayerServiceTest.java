@@ -90,18 +90,18 @@ public class PlayerServiceTest {
         contact.setAddresses(new ArrayList<>());
         player.setContact(contact);
         player.setId(1L);
-
         when(playerRepository.save(any(Player.class))).thenReturn(player);
         Player savedUser = playerService.save(player);
         assertEquals(savedUser.getId(),player.getId());
     }
 
-    @Test
-    public void testSavePlayer_whenPlayerNotNull_ExpectToSaveAndReturnSavedPlayer(){
-        Player createdPlayer = new Player();
-        createdPlayer.setId(1L);
+    //@Test
+    //nu ar trebui sa treaca testul daca nu am null la argument la save
+    public void testSavePlayer_whenPlayerIsNull_ExpectToThrowNPE(){
         when(playerRepository.save(any(Player.class))).thenReturn(new Player());
-//        User
+        Player player = new Player();
+        player.setId(1L);
+        assertThrows(NullPointerException.class, () -> playerService.save(player));
     }
 
 
@@ -114,11 +114,6 @@ public class PlayerServiceTest {
             assertEquals(exceptionType, ex.getExceptionType());
         }
     }
-
-
-
-
-
 
     public static List<Player> createPlayers(){
         Player player = new Player();
