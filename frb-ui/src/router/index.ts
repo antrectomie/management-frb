@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import FrbPlayerTable from "@/components/player/FrbPlayerTable.vue";
-import FrbClubsPage from "@/pages/clubs/FrbClubsPage.vue";
+import FrbClubsPage from "@/components/clubs/FrbClubsPage.vue";
 
 Vue.use(VueRouter)
 
@@ -12,9 +12,9 @@ const routes: Array<RouteConfig> = [
     component: FrbPlayerTable
   },
   {
-    path: '/clubs/:id',
+    path: '/clubs',
     name: 'Clubs',
-    component: FrbClubsPage
+    component: FrbClubsPage,
   }
 ]
 

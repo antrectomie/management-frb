@@ -40,4 +40,7 @@ a:hover {
 
 }
 
+.frb-page {
+  padding: 30px 30px;
+}
 </style>

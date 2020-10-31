@@ -34,6 +34,13 @@ export class FrbApi{
 
   getClubsByLeague(leagueId: number): Observable<Club[]> {
     if (isRealApi) {
+      console.log("CLUBS");
+      console.log("CLUBS");
+      console.log("CLUBS");
+      console.log("CLUBS");
+      console.log("CLUBS");
+      console.log("CLUBS");
+      console.log("CLUBS");
       return from(this.axios.get('http://79.114.119.116:8080/leagues/' + leagueId + '/clubs'))
         .pipe(
           map(res => (res as AxiosResponse).data as Club[])
