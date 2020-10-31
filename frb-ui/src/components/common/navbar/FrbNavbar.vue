@@ -44,6 +44,7 @@
 import {Component, Vue} from "vue-property-decorator";
 import {leaguesStoreFacade} from "@/store/leagues/leagues-store.facade";
 import FrbLeaguesDropdown from "@/components/leagues/FrbLeaguesDropdown.vue";
+import {FRB_API} from "@/api/frb-api";
 
 @Component({
   name: "FrbNavbar",
@@ -54,6 +55,7 @@ export default class FrbNavbar extends Vue {
 
   beforeMount() {
     leaguesStoreFacade.fetchAllLeagues();
+    FRB_API.getClubsByLeague(1);
   }
 
 }

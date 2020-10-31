@@ -1,5 +1,6 @@
 import {Player} from "@/models/player/player.model";
 import {League} from "@/models/ligues/ligue-model";
+import {Club} from "@/models/club/club-model";
 
 
 export const LIGUES: League[] = [
@@ -39,6 +40,8 @@ export const LIGUES: League[] = [
     maxClubs: 20
   },
 ];
+
+export const CLUBS: Club[] = [];
 
 export const PLAYERS: Player[] = [
   {
