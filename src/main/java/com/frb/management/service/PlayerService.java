@@ -33,6 +33,7 @@ public class PlayerService {
         this.contactRepository = contactRepository;
     }
 
+
     public PlayerDto getById(Long id){
         if(id == null){throw new WrongIdException("Id is null or empty", ExceptionType.PLAYER_TYPE);}
         Player player = playerRepository.findById(id).orElseThrow(() ->
@@ -64,5 +65,9 @@ public class PlayerService {
         return playerRepository.findAll().stream().map(
                 FlatPlayerMapper::toFlatPlayer).collect(Collectors.toList());
 
+    }
+
+    public Player getSimplePlayer(Long playerId) {
+        return playerRepository.findById(playerId).orElseThrow(()-> new EntityNotFoundException("Player not found"));
     }
 }
