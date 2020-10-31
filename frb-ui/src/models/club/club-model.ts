@@ -2,6 +2,7 @@ export interface Club {
   id: number;
   name: string;
   nrCis: string;
+  iban: string;
   creationDate?: string;
   previousName: string;
   nominalComponentOfOrgans: string;
