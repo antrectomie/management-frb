@@ -30,5 +30,16 @@ export const PLAYER_COLUMN_DEF: ColumnDefinition[] = [
     headerName: 'Current Nationality',
     field: 'currentNationality'
   },
+
+  {
+    headerName: 'email',
+    field: 'email'
+  },
+
+  {
+    headerName: 'Phone Number',
+    field: 'phoneNumber'
+  },
+
 ];
 

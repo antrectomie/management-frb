@@ -12,7 +12,7 @@ export class PlayerApi{
 
   getAllPlayers(): Observable<Player[]> {
     if (isRealApi) {
-      return from(this.axios.get('http://79.114.119.116:8080/players'))
+      return from(this.axios.get('http://79.114.119.116:8080/players/lazy'))
         .pipe(
           map(res => (res as AxiosResponse).data as Player[])
         );

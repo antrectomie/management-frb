@@ -36,7 +36,7 @@ export default class FrbDataTable extends Vue {
 @import "../../../node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 .frb-table {
-  width: 100%;
+  width: 83%;
   height: 600px;
 }
 
