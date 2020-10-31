@@ -1,12 +1,13 @@
 import {from, Observable, of} from "rxjs";
 import {Player} from "@/models/player/player.model";
-import {PLAYERS} from "@/api/mock.players";
+import {LIGUES, PLAYERS} from "@/api/mock.players";
 import {delay, map} from "rxjs/operators";
 import {AxiosResponse} from "axios";
+import {Ligue} from "@/models/ligues/ligue-model";
 
 const isRealApi = true;
 
-export class PlayerApi{
+export class FrbApi{
 
   private axios = require('axios');
 
@@ -19,8 +20,18 @@ export class PlayerApi{
     }
     return of(PLAYERS).pipe(delay(300));
   }
+
+  getAllLigues(): Observable<Ligue[]> {
+    if (isRealApi) {
+      return from(this.axios.get('http://79.114.119.116:8080/ligues'))
+        .pipe(
+          map(res => (res as AxiosResponse).data as Ligue[])
+        );
+    }
+    return of(LIGUES).pipe(delay(200));
+  }
 }
 
 
-export const PLAYER_API = new PlayerApi();
+export const FRB_API = new FrbApi();
 

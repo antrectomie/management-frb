@@ -1,5 +1,5 @@
 import store from '..';
-import {PlayersActionsType} from "@/store/players/actions/players-actions";
+import {PlayersActionsType} from "@/store/players/players-actions";
 import {playersStore} from "@/store/players/players-store";
 
 export class PlayersStoreFacade{

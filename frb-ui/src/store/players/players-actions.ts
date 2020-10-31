@@ -1,7 +1,7 @@
 import {ActionContext, ActionTree} from "vuex";
 import {PlayersState} from "@/store/players/players-store";
-import {PLAYER_API} from "@/api/player-api";
-import {PlayersMutationsType} from "@/store/players/mutations/players-mutations";
+import {FRB_API} from "@/api/frb-api";
+import {PlayersMutationsType} from "@/store/players/players-mutations";
 
 export enum PlayersActionsType {
   fetchAllPlayers = 'fetchAllPlayers',
@@ -15,7 +15,7 @@ export interface PlayersActions {
 
 export const playersActions: ActionTree<PlayersState, PlayersState> & PlayersActions = {
   fetchAllPlayers(context: PlayersActionContext): void {
-    PLAYER_API.getAllPlayers().subscribe(res => {
+    FRB_API.getAllPlayers().subscribe(res => {
       context.commit(PlayersMutationsType.SET_PLAYERS, res);
     });
   }

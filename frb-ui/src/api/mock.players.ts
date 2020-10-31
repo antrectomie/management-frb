@@ -1,5 +1,44 @@
 import {Player} from "@/models/player/player.model";
+import {Ligue} from "@/models/ligues/ligue-model";
 
+
+export const LIGUES: Ligue[] = [
+  {
+    id: 1,
+    name: 'Liga I',
+    maxClubs: 20
+  },
+  {
+    id: 1,
+    name: 'Liga I',
+    maxClubs: 20
+  },
+  {
+    id: 2,
+    name: 'Liga II',
+    maxClubs: 20
+  },
+  {
+    id: 3,
+    name: 'Liga III',
+    maxClubs: 20
+  },
+  {
+    id: 4,
+    name: 'Liga IV',
+    maxClubs: 20
+  },
+  {
+    id: 5,
+    name: 'Liga V',
+    maxClubs: 20
+  },
+  {
+    id: 6,
+    name: 'Liga VI',
+    maxClubs: 20
+  },
+];
 
 export const PLAYERS: Player[] = [
   {

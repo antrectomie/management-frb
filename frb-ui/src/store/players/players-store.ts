@@ -1,7 +1,7 @@
 import {Player} from "@/models/player/player.model";
-import {Store} from "vuex";
-import {playersMutations} from "@/store/players/mutations/players-mutations";
-import {playersActions} from "@/store/players/actions/players-actions";
+import {playersMutations} from "@/store/players/players-mutations";
+import {playersActions} from "@/store/players/players-actions";
+
 
 export interface PlayersState{
   players: Player[];
@@ -9,8 +9,8 @@ export interface PlayersState{
 
 export const playersStore = {
   state: {
-    players: [] as Player []
-  } as PlayersState,
+    players: []
+  } ,
   mutations: playersMutations,
   actions: playersActions
 }
