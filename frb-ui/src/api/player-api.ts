@@ -4,7 +4,7 @@ import {PLAYERS} from "@/api/mock.players";
 import {delay, map} from "rxjs/operators";
 import {AxiosResponse} from "axios";
 
-const isRealApi = false;
+const isRealApi = true;
 
 export class PlayerApi{
 
@@ -12,7 +12,7 @@ export class PlayerApi{
 
   getAllPlayers(): Observable<Player[]> {
     if (isRealApi) {
-      return from(this.axios.get('http://localhost:8080/////////'))
+      return from(this.axios.get('http://79.114.119.116:8080/players'))
         .pipe(
           map(res => (res as AxiosResponse).data as Player[])
         );
