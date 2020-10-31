@@ -1,22 +1,22 @@
-import {LiguesState} from "@/store/ligue/ligues-store";
-import {Ligue} from "@/models/ligues/ligue-model";
+import {LiguesState} from "@/store/ligue/leaguesStore";
+import {League} from "@/models/ligues/ligue-model";
 import {MutationTree} from "vuex";
 
-export enum LigueMutationsTypes {
+export enum LeagueMutationsTypes {
   setLeagues = 'setLeagues',
   setSelectedLeague = 'setSelectedLeague',
 }
 
 export interface LiguesMutations {
-  [LigueMutationsTypes.setLeagues](state: LiguesState, ligues: Ligue[]): void;
+  [LeagueMutationsTypes.setLeagues](state: LiguesState, ligues: League[]): void;
 
-  [LigueMutationsTypes.setSelectedLeague](state: LiguesState, ligue: Ligue): void;
+  [LeagueMutationsTypes.setSelectedLeague](state: LiguesState, ligue: League): void;
 }
 
 export const liguesMutations: LiguesMutations & MutationTree<LiguesState> = {
-  setLeagues(state: LiguesState, ligues: Ligue[]): void {
-    state.ligues = ligues;
-  }, setSelectedLeague(state: LiguesState, ligue: Ligue): void {
+  setLeagues(state: LiguesState, ligues: League[]): void {
+    state.leagues = ligues;
+  }, setSelectedLeague(state: LiguesState, ligue: League): void {
     state.selectedLigue = ligue;
   }
 

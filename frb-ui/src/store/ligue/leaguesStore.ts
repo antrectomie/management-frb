@@ -1,16 +1,16 @@
-import {Ligue} from "@/models/ligues/ligue-model";
+import {League} from "@/models/ligues/ligue-model";
 import {liguesMutations} from "@/store/ligue/ligues-mutations";
 import {liguesActions} from "@/store/ligue/ligues-actions";
 
 
 export interface LiguesState {
-  ligues: Ligue[];
-  selectedLigue: Ligue;
+  ligues: League[];
+  selectedLigue: League;
 }
 
-export const liguesStore = {
+export const leaguesStore = {
   state: {
-    ligues: [] ,
+    leagues: [] ,
     selectedLigue: {}
   } ,
   mutations: liguesMutations,

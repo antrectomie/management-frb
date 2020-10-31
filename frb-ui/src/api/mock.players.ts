@@ -1,8 +1,8 @@
 import {Player} from "@/models/player/player.model";
-import {Ligue} from "@/models/ligues/ligue-model";
+import {League} from "@/models/ligues/ligue-model";
 
 
-export const LIGUES: Ligue[] = [
+export const LIGUES: League[] = [
   {
     id: 1,
     name: 'Liga I',
