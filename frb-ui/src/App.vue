@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div>
-      <b-navbar toggleable="lg" type="dark" variant="light">
+      <b-navbar toggleable="lg" type="light" variant="light">
         <b-navbar-brand><router-link  to="/"><img
             src="https://www.frbaschet.ro/public/storage/settings/March2019/SJciz4SydNZ6TxwIIxt3.png"
             alt="FRB"
@@ -21,7 +21,7 @@
             <b-nav-item-dropdown right>
               <!-- Using 'button-content' slot -->
               <template #button-content>
-                <em>User</em>
+                User
               </template>
               <b-dropdown-item href="#">Profile</b-dropdown-item>
               <b-dropdown-item href="#">Sign Out</b-dropdown-item>
