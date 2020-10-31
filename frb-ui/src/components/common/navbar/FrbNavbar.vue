@@ -15,10 +15,10 @@
         <b-navbar-nav>
             <FrbLeaguesDropdown></FrbLeaguesDropdown>
           <b-nav-item>
-            <router-link to="/clubs">Cluburi</router-link>
+            <router-link to="/clubs"><b>Cluburi</b></router-link>
           </b-nav-item>
           <b-nav-item>
-            <router-link to="/games">Campionat</router-link>
+            <router-link to="/games"><b>Campionat</b></router-link>
           </b-nav-item>
         </b-navbar-nav>
 

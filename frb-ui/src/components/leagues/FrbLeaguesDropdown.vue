@@ -4,10 +4,10 @@
       <b-nav-item-dropdown right>
         <!-- Using 'button-content' slot -->
         <template #button-content>
-          <strong>{{ selectedLeague.name.toUpperCase() }}</strong>
+          <b>{{ selectedLeague.name.toUpperCase() }}</b>
         </template>
-
-        <b-dropdown-item v-for="league in leagues" :key="league.id" @click="changeLeague(league)">{{ league.name.toUpperCase() }}
+        <b-dropdown-item v-for="league in leagues" :key="league.id" @click="changeLeague(league)">
+          <b>{{ league.name.toUpperCase() }}</b>
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
