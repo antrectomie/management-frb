@@ -18,5 +18,17 @@ export const PLAYER_COLUMN_DEF: ColumnDefinition[] = [
     headerName: 'Last Name',
     field: 'lastName'
   },
+  {
+    headerName: 'CNP',
+    field: 'cnp'
+  },
+  {
+    headerName: 'Birth Nationality',
+    field: 'birthNationality'
+  },
+  {
+    headerName: 'Current Nationality',
+    field: 'currentNationality'
+  },
 ];
 
