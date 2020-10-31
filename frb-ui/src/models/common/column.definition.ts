@@ -7,15 +7,15 @@ export interface ColumnDefinition {
 
 export const PLAYER_COLUMN_DEF: ColumnDefinition[] = [
   {
-    headerName: 'Identifier',
+    headerName: 'Id unic',
     field: 'id'
   },
   {
-    headerName: 'First Name',
+    headerName: 'Nume',
     field: 'firstName'
   },
   {
-    headerName: 'Last Name',
+    headerName: 'Nume de Familie',
     field: 'lastName'
   },
   {
@@ -23,21 +23,21 @@ export const PLAYER_COLUMN_DEF: ColumnDefinition[] = [
     field: 'cnp'
   },
   {
-    headerName: 'Birth Nationality',
+    headerName: 'Nationalitate la nastere',
     field: 'birthNationality'
   },
   {
-    headerName: 'Current Nationality',
+    headerName: 'Nationalitate',
     field: 'currentNationality'
   },
 
   {
-    headerName: 'email',
+    headerName: 'Email',
     field: 'email'
   },
 
   {
-    headerName: 'Phone Number',
+    headerName: 'Numar Telefon',
     field: 'phoneNumber'
   },
 
