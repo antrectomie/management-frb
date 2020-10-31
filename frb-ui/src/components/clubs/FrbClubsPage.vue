@@ -21,7 +21,7 @@ export default class FrbClubsPage extends Vue {
   }
 
   @Watch('league')
-  watchLeague(newVal: League) {
+  public watchLeague(newVal: League) {
     console.log(this.league);
     if (this.league) {
       console.log(this.league);
