@@ -13,6 +13,7 @@ export enum LiguesActionsTypes {
 
 export interface LiguesActions {
   [LiguesActionsTypes.fetchAllLeagues](context: LiguesContext): void;
+
   [LiguesActionsTypes.changeSelectedLeague](context: LiguesContext, league: League): void;
 }
 
@@ -23,7 +24,9 @@ export const liguesActions: ActionTree<LeaguesState, LeaguesState> & LiguesActio
   fetchAllLeagues(context: LiguesContext): void {
     FRB_API.getAllLigues().subscribe(ligues => {
         context.commit(LeagueMutationsTypes.setLeagues, ligues);
-        context.commit(LeagueMutationsTypes.setSelectedLeague, ligues[0]);
+        if (ligues.length > 0) {
+          context.commit(LeagueMutationsTypes.setSelectedLeague, ligues[0]);
+        }
       }
     );
   }
