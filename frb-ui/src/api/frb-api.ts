@@ -23,7 +23,7 @@ export class FrbApi{
 
   getAllLigues(): Observable<League[]> {
     if (isRealApi) {
-      return from(this.axios.get('http://79.114.119.116:8080/ligues'))
+      return from(this.axios.get('http://79.114.119.116:8080/leagues'))
         .pipe(
           map(res => (res as AxiosResponse).data as League[])
         );

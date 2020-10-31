@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import {playersStore} from "@/store/players/players-store";
-import {leaguesStore} from "@/store/ligue/leaguesStore";
+import {leaguesStore} from "@/store/leagues/leaguesStore";
 
 Vue.use(Vuex)
 
