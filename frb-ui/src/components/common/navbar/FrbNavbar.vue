@@ -13,6 +13,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
+            <FrbLeaguesDropdown></FrbLeaguesDropdown>
           <b-nav-item>
             <router-link to="/clubs">Cluburi</router-link>
           </b-nav-item>
@@ -22,7 +23,6 @@
         </b-navbar-nav>
 
 
-        <FrbLeaguesDropdown></FrbLeaguesDropdown>
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown right>

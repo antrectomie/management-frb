@@ -4,10 +4,11 @@
       <b-nav-item-dropdown right>
         <!-- Using 'button-content' slot -->
         <template #button-content>
-          Alege Campionat
+          <strong>{{ selectedLeague.name }}</strong>
         </template>
 
-        <b-dropdown-item v-for="league in leagues" :key="league.id" @click="changeLeague(league)">{{league.name}}</b-dropdown-item>
+        <b-dropdown-item v-for="league in leagues" :key="league.id" @click="changeLeague(league)">{{ league.name }}
+        </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
   </div>
@@ -27,6 +28,10 @@ export default class FrbLeaguesDropdown extends Vue {
 
   changeLeague(league: League) {
     leaguesStoreFacade.changeSelectedLeague(league);
+  }
+
+  get selectedLeague(): League {
+    return leaguesStoreFacade.getSelectedLeague();
   }
 
 
