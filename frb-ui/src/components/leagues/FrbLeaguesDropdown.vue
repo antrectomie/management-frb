@@ -4,10 +4,10 @@
       <b-nav-item-dropdown right>
         <!-- Using 'button-content' slot -->
         <template #button-content>
-          <b>{{ selectedLeague.name.toUpperCase() }}</b>
+          <b>{{ selectedLeague.name }}</b>
         </template>
         <b-dropdown-item v-for="league in leagues" :key="league.id" @click="changeLeague(league)">
-          <b>{{ league.name.toUpperCase() }}</b>
+          <b>{{ league.name }}</b>
         </b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
@@ -17,7 +17,7 @@
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import {leaguesStoreFacade} from "@/store/leagues/leagues-store.facade";
-import {League} from "@/models/ligues/ligue-model";
+import {League} from "@/models/leagues/ligue-model";
 
 @Component
 export default class FrbLeaguesDropdown extends Vue {

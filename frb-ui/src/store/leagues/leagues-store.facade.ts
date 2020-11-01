@@ -1,8 +1,7 @@
-import {Vue} from "vue-property-decorator";
 import store from '..';
 import {LiguesActionsTypes} from "@/store/leagues/ligues-actions";
 import {leaguesStore} from "@/store/leagues/leaguesStore";
-import {League} from "@/models/ligues/ligue-model";
+import {League} from "@/models/leagues/ligue-model";
 
 export class LeaguesStoreFacade {
 

@@ -1,11 +1,11 @@
 import {Player} from "@/models/player/player.model";
-import {League} from "@/models/ligues/ligue-model";
+import {League} from "@/models/leagues/ligue-model";
 import {Club} from "@/models/club/club-model";
 
 
 export const LIGUES: League[] = [
   {
-    id: 1,
+    id: 100,
     name: 'Liga I',
     maxClubs: 20
   },

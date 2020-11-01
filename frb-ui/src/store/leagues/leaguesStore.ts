@@ -1,4 +1,4 @@
-import {League} from "@/models/ligues/ligue-model";
+import {League} from "@/models/leagues/ligue-model";
 import {liguesMutations} from "@/store/leagues/ligues-mutations";
 import {liguesActions} from "@/store/leagues/ligues-actions";
 

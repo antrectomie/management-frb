@@ -1,5 +1,5 @@
 import {LeaguesState} from "@/store/leagues/leaguesStore";
-import {League} from "@/models/ligues/ligue-model";
+import {League} from "@/models/leagues/ligue-model";
 import {MutationTree} from "vuex";
 
 export enum LeagueMutationsTypes {

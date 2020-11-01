@@ -43,3 +43,49 @@ export const PLAYER_COLUMN_DEF: ColumnDefinition[] = [
 
 ];
 
+export const CLUB_COLUMN_DEF: ColumnDefinition[] = [
+  {
+    headerName: 'Id unic',
+    field: 'id'
+  },
+  {
+    headerName: 'Nume Club',
+    field: 'name'
+  },
+  {
+    headerName: 'Numar CIS',
+    field: 'nrCis'
+  },
+  {
+    headerName: 'IBAN',
+    field: 'iban'
+  },
+  {
+    headerName: 'Data infiintare',
+    field: 'creationDate'
+  },
+  {
+    headerName: 'Nume anterior',
+    field: 'previousName'
+  },
+
+  {
+    headerName: 'Organe component nominal',
+    field: 'nominalComponentOfOrgans'
+  },
+
+  {
+    headerName: 'Nume Contact',
+    field: 'personOfContact'
+  },
+  {
+    headerName: 'Numar Telefon',
+    field: 'contactPhone'
+  },
+  {
+    headerName: 'Email',
+    field: 'contactEmail'
+  },
+
+];
+

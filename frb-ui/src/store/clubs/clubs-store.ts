@@ -1,6 +1,6 @@
 import {Club} from "@/models/club/club-model";
-import {clubsActions} from "@/store/clubs/club.actions";
-import { clubsMutations } from './clubs.mutations';
+import {clubsMutations} from './clubs-mutations';
+import {clubsActions} from './clubs-actions';
 
 export interface ClubsState {
   clubs: Club [];
@@ -9,7 +9,7 @@ export interface ClubsState {
 export const clubsStore = {
   state: {
     clubs: []
-  },
-  clubsMutations,
-  clubsActions,
+  } as ClubsState,
+  mutations: clubsMutations,
+  actions: clubsActions,
 }
