@@ -97,7 +97,7 @@
         </b-form>
 
         <div class="form-buttons">
-          <b-button type="submit"  variant="primary">Adauga Club</b-button>
+          <b-button @click="onSubmit"  variant="primary">Adauga Club</b-button>
           <b-button type="reset" style="margin-left: auto; justify-content: flex-end" variant="danger">Reseteaza campurile</b-button>
         </div>
       </b-form>
@@ -110,6 +110,8 @@
 
 import {Component, Vue} from "vue-property-decorator";
 import {Club} from "@/models/club/club-model";
+import {FRB_API} from "@/api/frb-api";
+import {leaguesStoreFacade} from "@/store/leagues/leagues-store.facade";
 
 @Component
 export default class AddNewClubForm extends Vue {
@@ -118,7 +120,9 @@ export default class AddNewClubForm extends Vue {
 
   onSubmit($event: Event) {
     $event.preventDefault()
-    alert(JSON.stringify(this.club))
+    FRB_API.addClub(leaguesStoreFacade.getSelectedLeague().id, this.club).subscribe(res => {
+      this.$router.back();
+    });
   }
 }
 </script>

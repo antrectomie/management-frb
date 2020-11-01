@@ -6,7 +6,7 @@ import {AxiosResponse} from "axios";
 import {League} from "@/models/leagues/ligue-model";
 import {Club} from "@/models/club/club-model";
 
-const isRealApi = false;
+const isRealApi = true;
 
 export class FrbApi{
 
@@ -40,6 +40,14 @@ export class FrbApi{
         );
     }
     return of(CLUBS).pipe(delay(200));
+  }
+
+  addClub(leagueId: number, club: Club) {
+    if (isRealApi) {
+      return from(this.axios.post('http://79.114.119.116:8080/leagues/' + leagueId + '/clubs', club));
+    }else {
+      return of(delay(200));
+    }
   }
 }
 
