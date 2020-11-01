@@ -6,7 +6,7 @@ import {AxiosResponse} from "axios";
 import {League} from "@/models/leagues/ligue-model";
 import {Club} from "@/models/club/club-model";
 
-const isRealApi = true;
+const isRealApi = false;
 
 export class FrbApi{
 

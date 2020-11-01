@@ -1,6 +1,16 @@
 <template>
   <div class="frb-page">
-    <h6><b>{{ title }}{{ league.name }}</b></h6>
+    <div class="clubs-page-head">
+      <h6><b>{{ title }}{{ league.name }}</b></h6>
+
+      <router-link id="createClubButton"
+                   to="/clubs/add-new">
+        <b-button
+            pill variant="primary"
+        >Adauga un club
+        </b-button>
+      </router-link>
+    </div>
 
     <FrbDataTable
         :row-data="clubs"
@@ -60,6 +70,14 @@ export default class FrbClubsPage extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.clubs-page-head {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
 
+#createClubButton {
+  margin-left: auto;
+}
 </style>
