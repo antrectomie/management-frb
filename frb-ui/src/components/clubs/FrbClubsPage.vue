@@ -50,6 +50,12 @@ export default class FrbClubsPage extends Vue {
     }
   }
 
+  beforeMount() {
+    if (this.league) {
+      clubsStoreFacade.fetchClubsByLeague(this.league.id);
+    }
+  }
+
 
 }
 </script>
