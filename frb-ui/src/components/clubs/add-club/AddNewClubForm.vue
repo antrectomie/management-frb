@@ -2,7 +2,7 @@
   <div class="club-form">
     <b-container fluid>
 
-      <b-form @submit="onSubmit()">
+      <b-form @submit="onSubmit($event)">
         <b-form-group
             id="input-group-1"
             label="Nume Club:"
@@ -97,7 +97,7 @@
         </b-form>
 
         <div class="form-buttons">
-          <b-button @click="onSubmit"  variant="primary">Adauga Club</b-button>
+          <b-button type="submit"  variant="primary">Adauga Club</b-button>
           <b-button type="reset" style="margin-left: auto; justify-content: flex-end" variant="danger">Reseteaza campurile</b-button>
         </div>
       </b-form>
