@@ -3,7 +3,7 @@
     <div>
       <h5><b>{{ title }}{{ league.name }}</b></h5>
 
-      <div class="clubs-page-head">
+      <div class="clubs-action-header">
         <ClubActionsDropdown></ClubActionsDropdown>
 
         <router-link id="createClubButton"
@@ -82,7 +82,7 @@ export default class FrbClubsPage extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.clubs-page-head {
+.clubs-action-header {
   width: 100%;
   display: flex;
   flex-direction: row;
