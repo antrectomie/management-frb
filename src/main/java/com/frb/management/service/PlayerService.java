@@ -9,8 +9,10 @@ import com.frb.management.mapper.PlayerMapper;
 import com.frb.management.model.Address;
 import com.frb.management.model.Contact;
 import com.frb.management.model.Player;
+import com.frb.management.model.SportClub;
 import com.frb.management.repository.ContactRepository;
 import com.frb.management.repository.PlayerRepository;
+import com.frb.management.repository.SportClubRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,14 +25,16 @@ import java.util.stream.Collectors;
 @Transactional
 public class PlayerService {
 
-    private PlayerRepository playerRepository;
-    private AddressService addressService;
-    private ContactRepository contactRepository;
+    private final PlayerRepository playerRepository;
+    private final AddressService addressService;
+    private final ContactRepository contactRepository;
+    private final SportClubRepository sportClubRepository;
 
-    public PlayerService(PlayerRepository playerRepository, AddressService addressService, ContactRepository contactRepository) {
+    public PlayerService(PlayerRepository playerRepository, AddressService addressService, ContactRepository contactRepository, SportClubRepository sportClubRepository) {
         this.playerRepository = playerRepository;
         this.addressService = addressService;
         this.contactRepository = contactRepository;
+        this.sportClubRepository = sportClubRepository;
     }
 
 
@@ -44,14 +48,21 @@ public class PlayerService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public Player save(Player player){
+    public Player save(Player player, Long clubId){
         if(player == null){
-            throw new  NullPointerException("argument player is null");
+            throw new  NullPointerException("player is null");
         }
-        Contact c = player.getContact();
-        List<Address> addresses = c.getAddresses();
-        contactRepository.save(c);
+        if(clubId == null){
+            throw new WrongIdException("clubId is null", ExceptionType.SPORT_CLUB_TYPE);
+        }
+        SportClub sportClub = sportClubRepository
+                .findById(clubId)
+                .orElseThrow(() -> new EntityNotFoundException("SportClub Not Found"));
+        Contact contact = player.getContact();
+        List<Address> addresses = contact.getAddresses();
+        contactRepository.save(contact);
         addressService.saveAll(addresses);
+        player.setSportClub(sportClub);
         return playerRepository.save(player);
     }
 
@@ -69,5 +80,15 @@ public class PlayerService {
 
     public Player getSimplePlayer(Long playerId) {
         return playerRepository.findById(playerId).orElseThrow(()-> new EntityNotFoundException("Player not found"));
+    }
+
+    public List<PlayerDto> getByClubId(Long clubId) {
+        if(clubId == null){
+            throw new WrongIdException(" club's id is wrong or null", ExceptionType.PLAYER_TYPE);
+        }
+       return  playerRepository.findBySportClubId(clubId)
+        .stream()
+        .map(PlayerMapper::toDto)
+        .collect(Collectors.toList());
     }
 }

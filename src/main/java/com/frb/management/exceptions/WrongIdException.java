@@ -5,7 +5,6 @@ import com.frb.management.errorconfig.ExceptionType;
 public class WrongIdException extends RuntimeException{
     private ExceptionType exceptionType;
     public WrongIdException(String message, ExceptionType exceptionType) {
-        super(message);
         this.exceptionType = exceptionType;
     }
 

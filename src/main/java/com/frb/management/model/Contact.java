@@ -21,6 +21,7 @@ public class Contact {
     private String phoneNumber;
     private String faxNumber;
     private String email;
+    private String personOfContact;
     @OneToMany (fetch = FetchType.EAGER)
     @JoinColumn(name = "contact_id")
     private List<Address> addresses = new ArrayList<>();

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @AllArgsConstructor
@@ -17,6 +19,62 @@ public class SportClubDto {
     private String iban;
     private String previousName;
     private String nominalComponentOfOrgans;
+    private LocalDate creationDate;
+
+    private String personOfContact;
+    private String faxNumber;
+    private String contactPhone;
+    private String contactEmail;
+    private String league;
+
+
+    public String getFaxNumber() {
+        return faxNumber;
+    }
+
+    public void setFaxNumber(String faxNumber) {
+        this.faxNumber = faxNumber;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getPersonOfContact() {
+        return personOfContact;
+    }
+
+    public void setPersonOfContact(String personOfContact) {
+        this.personOfContact = personOfContact;
+    }
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getLeague() {
+        return league;
+    }
+
+    public void setLeague(String league) {
+        this.league = league;
+    }
 
     public Long getId() {
         return id;

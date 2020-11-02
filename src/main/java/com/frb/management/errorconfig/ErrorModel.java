@@ -15,11 +15,12 @@ public class ErrorModel {
 
     private ExceptionType exceptionType;
 
-    public ErrorModel(HttpStatus httpStatus, String message, String details) {
+    public ErrorModel(HttpStatus httpStatus, String message, String details, ExceptionType exceptionType) {
         this.httpStatus = httpStatus;
         this.timestamp = LocalDateTime.now();
         this.message = message;
         this.details = details;
+        this.exceptionType = exceptionType;
     }
 
     public HttpStatus getHttpStatus() {

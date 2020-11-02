@@ -1,6 +1,6 @@
 package com.frb.management.service;
 
-import com.frb.management.exceptions.WrongIdException;
+import com.frb.management.errorconfig.ExceptionType;
 import com.frb.management.exceptions.WrongParameterException;
 import com.frb.management.model.Document;
 import com.frb.management.model.Player;
@@ -8,8 +8,6 @@ import com.frb.management.model.PlayerDocument;
 import com.frb.management.repository.PlayerDocumentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityNotFoundException;
 
 @Service
 @Transactional
@@ -21,7 +19,7 @@ public class PlayerDocumentService {
     }
 
     public PlayerDocument save(PlayerDocument playerDocument){
-        if(playerDocument == null){throw new WrongParameterException("PlayerDocument is null");
+        if(playerDocument == null){throw new WrongParameterException("PlayerDocument is null", ExceptionType.PLAYER_TYPE);
         }
         Player player = playerDocument.getPlayer();
         Document document = playerDocument.getDocument();

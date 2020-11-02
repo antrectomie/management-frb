@@ -30,4 +30,6 @@ public class FlatPlayerMapper {
                 .postOffice(address != null ? address.getPostOffice() : null)
                 .build();
     }
+
+
 }

@@ -6,6 +6,7 @@ import com.frb.management.model.Contact;
 import com.frb.management.model.Player;
 import com.frb.management.repository.ContactRepository;
 import com.frb.management.repository.PlayerRepository;
+import com.frb.management.repository.SportClubRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,13 +39,16 @@ public class PlayerServiceTest {
     private AddressService addressService;
     @MockBean
     ContactRepository contactRepository;
+    @MockBean
+    SportClubRepository sportClubRepository;
 
     @TestConfiguration
     static class TestConfigFriendships {
         @Bean
         public PlayerService friendshipService(PlayerRepository playerRepository,
-                                               AddressService addressService, ContactRepository contactRepository) {
-            return new PlayerService(playerRepository,addressService, contactRepository);
+                                               AddressService addressService, ContactRepository contactRepository,
+                                               SportClubRepository sportClubRepository) {
+            return new PlayerService(playerRepository,addressService, contactRepository, sportClubRepository);
         }
     }
 
@@ -91,7 +95,7 @@ public class PlayerServiceTest {
         player.setContact(contact);
         player.setId(1L);
         when(playerRepository.save(any(Player.class))).thenReturn(player);
-        Player savedUser = playerService.save(player);
+        Player savedUser = playerService.save(player, 1L);
         assertEquals(savedUser.getId(),player.getId());
     }
 
@@ -101,7 +105,7 @@ public class PlayerServiceTest {
         when(playerRepository.save(any(Player.class))).thenReturn(new Player());
         Player player = new Player();
         player.setId(1L);
-        assertThrows(NullPointerException.class, () -> playerService.save(player));
+        assertThrows(NullPointerException.class, () -> playerService.save(player, 1L));
     }
 
 

@@ -1,5 +1,6 @@
 package com.frb.management.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,8 +9,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,19 +28,27 @@ public class SportClub {
     private String nrCis;
     private String iban;
 
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @DateTimeFormat(pattern = "ddmmYYYY HH:mm:ss")
-    private LocalDateTime creationDate;
+//    @Temporal(TemporalType.DATE)
+//    @DateTimeFormat(pattern = "yyyyMMdd")
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate creationDate;
 
     private String previousNames;
     private String nominalComponentOfOrgans;
+
+
+    @OneToOne()
+    private Contact contact;
+
+    @ManyToOne
+    private Ligue ligue;
+
 
 //    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "sportClub")
 //    @JsonIgnore
 //    private List<Document> documents = new ArrayList<>();
 
-    @OneToOne()
-    private Contact contact;
+
 
 //
 //    @OneToMany(mappedBy = "sportClub")

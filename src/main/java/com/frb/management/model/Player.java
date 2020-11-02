@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -27,6 +28,9 @@ public class Player {
 
     @OneToOne()
     private Contact contact;
+
+    @ManyToOne
+    private SportClub sportClub;
 
 
     public Long getId() {
@@ -100,6 +104,14 @@ public class Player {
 
     public void setContact(Contact contact) {
         this.contact = contact;
+    }
+
+    public SportClub getSportClub() {
+        return sportClub;
+    }
+
+    public void setSportClub(SportClub sportClub) {
+        this.sportClub = sportClub;
     }
 
     @Override

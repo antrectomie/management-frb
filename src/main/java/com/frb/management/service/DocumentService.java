@@ -57,7 +57,7 @@ public class DocumentService {
         String entityNameForFileCreation = entityType.name().split("_")[0];
         String folderPath = basePath + entityNameForFileCreation + File.separator + entityId;
         Path rootPath = Paths.get(folderPath);
-        Path relative = Paths.get( rootPath.toString() + File.separator + multipartFile.getOriginalFilename());
+       // Path relative = Paths.get( rootPath.toString() + File.separator + multipartFile.getOriginalFilename());
         try {
             Files.createDirectories(rootPath);
             Files.copy(multipartFile.getInputStream(), rootPath.resolve(Objects.requireNonNull(multipartFile.getOriginalFilename())));

@@ -4,9 +4,9 @@ import com.frb.management.errorconfig.ExceptionType;
 import lombok.Data;
 
 @Data
-public class WrongParameterException extends RuntimeException {
+public class StupidException extends Exception {
     private ExceptionType exceptionType;
-    public WrongParameterException(String message, ExceptionType exceptionType) {
+    public StupidException(String s, ExceptionType exceptionType) {
         this.exceptionType = exceptionType;
     }
 }

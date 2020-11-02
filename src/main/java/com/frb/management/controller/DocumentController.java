@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/documents")
 public class DocumentController {
 

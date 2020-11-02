@@ -2,8 +2,8 @@ package com.frb.management.errorconfig;
 
 public enum ExceptionType {
     PLAYER_TYPE(1, "PLAYER EXCEPTION"),
-    SPORT_CLUB_TYPE(2, "SPORT_CLUB_EXCEPTION");
-
+    SPORT_CLUB_TYPE(2, "SPORT_CLUB_EXCEPTION"),
+    LEAGUE_TYPE(3,"LEAGUE_EXCEPTION");
     int code;
     String message;
 
