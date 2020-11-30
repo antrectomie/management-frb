@@ -5,8 +5,10 @@ import com.frb.management.dto.SportClubDto;
 import com.frb.management.model.Contact;
 import com.frb.management.model.Ligue;
 import com.frb.management.model.SportClub;
+import org.springframework.boot.CommandLineRunner;
 
 public class SportClubMapper {
+    CommandLineRunner g;
 
     public static SportClubDto toDto(SportClub sportClub){
         Contact contact = sportClub.getContact();

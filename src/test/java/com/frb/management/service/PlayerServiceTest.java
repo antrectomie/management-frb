@@ -60,7 +60,7 @@ public class PlayerServiceTest {
         player.setFirstName("popa");
 //        System.out.println(playerService.getById(1L));
         given(playerRepository.findById(player.getId())).willReturn(Optional.of(player));
-        Assertions.assertEquals(playerService.getById(1L).getId(), 1);
+        Assertions.assertEquals(playerService.getById(1L).getId(), Long.valueOf(1));
     }
 
     @Test
@@ -108,7 +108,18 @@ public class PlayerServiceTest {
         assertThrows(NullPointerException.class, () -> playerService.save(player, 1L));
     }
 
-
+//    @Test
+//    @DisplayName("Test findById Not Found")
+//    void testFindByIdNotFound() {
+//        // Setup our mock repository
+//        doReturn(Optional.empty()).when(repository).findById(1l);
+//
+//        // Execute the service call
+//        Optional<Widget> returnedWidget = service.findById(1l);
+//
+//        // Assert the response
+//        Assertions.assertFalse(returnedWidget.isPresent(), "Widget should not be found");
+//    }
 
     public void assertThrowType(ExceptionType exceptionType, Runnable runnable){
         try{
